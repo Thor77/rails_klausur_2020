@@ -16,7 +16,6 @@ Mache die folgenden Abschnitte von http://guides.rubyonrails.org/index.html offl
      * The Asset Pipeline
      * Working with JavaScript in Rails
      * Caching with Rails: An Overview
-        
 
 Diese Website gibt es auch in einer Offline-Version (incl. Suche) http://devdocs.io
 Setze dein System auf und stelle sicher, dass der Test läuft und grün ist. (`rake test`)
@@ -44,9 +43,35 @@ Sollte am Ende diese Ausgabe haben:
 
 Kopiere diesen ganzen Ordner auf den USB-Stick. Benenne den Ordner in deine Matrikelnummer um!
 
-# Aufgaben
+# Aufgabe
 
-Hier findest du am 15.05. die Aufgaben. 
+Erstelle ein Programm zur Verwaltung von Infektionen z.B. mit COVID-19
+Dazu sind folgende Modelle notwendig (Beim Generator die Option -s nicht vergessen!):
+
+* Patient
+    * name:string
+    * email:string
+    * mobile:string
+    * Hat keine, eine oder mehrere Infektionen
+    * Gehört zu einem Doctor und damit auch zu einem Laboratory
+* Infection
+    * name:string
+    * Gehört zu einem Patienten
+* Doctor
+    * name:string
+    * Hat viele Patienten
+    * Gehört zu einem Laboratory
+* Laboratory
+   * name:string
+   * Weist Infektion bei Patient nach
+   * Hat mehrere Doctors
+
+## Weiteres Vorgehen
+
+* Erzeuge die notwendigen Modelle, Tabellen und Join-Tabellen
+* Lege die Rückwärts-Relationen an
+* Zu einigen Tests finden sich in den jeweiligen Kommentaren zu dem Test weitere Hinweise zur Implementierung. 
+* Bearbeitungszeit: 60 Minuten
 
 # Kompatibilität
 Die Klausur wurde getestet mit 

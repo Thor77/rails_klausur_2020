@@ -1,5 +1,5 @@
 class LaboratoriesController < ApplicationController
-  before_action :set_laboratory, only: [:show, :edit, :update, :destroy]
+  before_action :set_laboratory, only: [:show, :edit, :update, :destroy, :sample]
 
   # GET /laboratories
   # GET /laboratories.json
@@ -58,6 +58,12 @@ class LaboratoriesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to laboratories_url, notice: 'Laboratory was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def sample
+    respond_to do |format|
+      format.html { render :sample, status: :ok }
     end
   end
 

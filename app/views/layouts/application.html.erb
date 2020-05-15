@@ -15,8 +15,8 @@
       <div class="navbar-menu">
         <div class="navbar-start">
           <a class="navbar-item is-active" href="xx">Patienten</a>
-          <a class="navbar-item" href="xx">Doktoren</a>
-          <a class="navbar-item" href="xx">Labore</a>
+          <a class="navbar-item <% if current_page? controller: 'doctors', action: 'index' %> is-active<% end %>" href="xx">Doktoren</a>
+          <a class="navbar-item <% if current_page? controller: 'laboratories', action: 'index' %> is-active<% end %>" href="xx">Labore</a>
         </div>
       </div>
     </nav>

@@ -1,5 +1,5 @@
 class DoctorsController < ApplicationController
-  before_action :set_doctor, only: [:show, :edit, :update, :destroy]
+  before_action :set_doctor, only: [:show, :edit, :update, :destroy, :see]
 
   # GET /doctors
   # GET /doctors.json
@@ -61,6 +61,13 @@ class DoctorsController < ApplicationController
     end
   end
 
+  def see
+    @patient = Patient.find see_params[:patient_id]
+    respond_to  do |format|
+      format.html { render :see, status: :ok }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_doctor
@@ -70,5 +77,9 @@ class DoctorsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def doctor_params
       params.require(:doctor).permit(:name, :laboratory_id)
+    end
+
+    def see_params
+      params.permit(:patient_id)
     end
 end

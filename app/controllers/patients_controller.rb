@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-  before_action :set_patient, only: [:show, :edit, :update, :destroy]
+  before_action :set_patient, only: [:show, :edit, :update, :destroy, :test]
 
   # GET /patients
   # GET /patients.json
@@ -61,6 +61,15 @@ class PatientsController < ApplicationController
     end
   end
 
+  def test
+    lab = Laboratory.find test_params[:laboratory]
+    i = Infection.new name: 'COVID-19', patient: @patient
+    i.save!
+    respond_to do |format|
+      format.html { redirect_to infection_url(i) }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_patient
@@ -70,5 +79,9 @@ class PatientsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def patient_params
       params.require(:patient).permit(:name, :email, :mobile, :doctor_id)
+    end
+
+    def test_params
+      params.permit(:laboratory)
     end
 end

@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @infection.name
+
+=> link_to 'Edit', edit_infection_path(@infection)
+'|
+=< link_to 'Back', infections_path

@@ -1,0 +1,12 @@
+= form_for @infection do |f|
+  - if @infection.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@infection.errors.count, "error")} prohibited this infection from being saved:"
+      ul
+        - @infection.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions = f.submit

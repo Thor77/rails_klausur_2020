@@ -1,0 +1,27 @@
+h1 Patients
+
+table.table
+  thead
+    tr
+      th Name
+      th Email
+      th Mobile
+      th
+      th
+      th
+
+  tbody
+    - @patients.each do |patient|
+      td
+        a = 'Gehe zum Arzt'
+      tr
+        td = patient.name
+        td = patient.email
+        td = patient.mobile
+        td = link_to 'Show', patient
+        td = link_to 'Edit', edit_patient_path(patient)
+        td = link_to 'Destroy', patient, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Patient', new_patient_path

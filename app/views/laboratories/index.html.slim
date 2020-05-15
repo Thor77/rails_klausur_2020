@@ -1,0 +1,21 @@
+h1 Listing laboratories
+
+table.table
+  thead
+    tr
+      th Name
+      th
+      th
+      th
+
+  tbody
+    - @laboratories.each do |laboratory|
+      tr
+        td = laboratory.name
+        td = link_to 'Show', laboratory
+        td = link_to 'Edit', edit_laboratory_path(laboratory)
+        td = link_to 'Destroy', laboratory, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Laboratory', new_laboratory_path

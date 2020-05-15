@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @laboratory.name
+
+=> link_to 'Edit', edit_laboratory_path(@laboratory)
+'|
+=< link_to 'Back', laboratories_path

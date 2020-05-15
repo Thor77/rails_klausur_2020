@@ -1,0 +1,21 @@
+h1 Listing infections
+
+table
+  thead
+    tr
+      th Name
+      th
+      th
+      th
+
+  tbody
+    - @infections.each do |infection|
+      tr
+        td = infection.name
+        td = link_to 'Show', infection
+        td = link_to 'Edit', edit_infection_path(infection)
+        td = link_to 'Destroy', infection, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Infection', new_infection_path
